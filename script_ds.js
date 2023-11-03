@@ -51,7 +51,7 @@ class Todo {
         const isDeleteButton = event.target.closest(".todo__node_delete");
         const isDoneCheckBox = event.target.closest(".todo__node_checkbox");
         const parentNodeId = parentNode.id;
-        const localStorage = new LocStorage();
+        const locStorage = new LocStorage();
         const node = new Todo();
 
         if (isDeleteButton) {
@@ -64,8 +64,8 @@ class Todo {
                 return task["id"] !== parentNodeId;
             });
 
-            localStorage.setTodos(storedTasks);
-            node.checkLocalStorage(localStorage);
+            locStorage.setTodos(storedTasks);
+            node.checkLocalStorage(locStorage);
 
         } else if (isDoneCheckBox) {
             storedTasks.forEach(function (todo) {
@@ -74,8 +74,8 @@ class Todo {
                 }
             });
 
-            localStorage.setTodos(storedTasks);
-            this.checkLocalStorage(localStorage);
+            locStorage.setTodos(storedTasks);
+            this.checkLocalStorage(locStorage);
         }
     }
     //Описание элементов, которые будут добавлены на страницу
@@ -126,10 +126,10 @@ function addTask(todoItems) {
     storedTasks.values(todo.getTasks());
     storedTasks.push(todo.getString());
     console.log(todo.getString());
-    localStorage.setTodos(storedTasks);
+    locStorage.setTodos(storedTasks);
 }
 
 //При обновлении страницы заполнить данными из LocalStorage
-const localStorage = new LocStorage();
+const locStorage = new LocStorage();
 const localStorageItems = new Todo();
-localStorageItems.checkLocalStorage(localStorage);
+localStorageItems.checkLocalStorage(locStorage);
