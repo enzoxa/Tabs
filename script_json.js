@@ -1,12 +1,12 @@
-var personForm = document.getElementById("myForm");
-var nameInput = personForm.querySelector("input[name='name']");
-var ageInput = personForm.querySelector("input[name='age']");
-var emailInput = personForm.querySelector("input[name='email']");
-var phoneInput = personForm.querySelector("input[name='phone']");
-var addressInput = personForm.querySelector("input[name='address']");
-var cityInput = personForm.querySelector("input[name='city']");
-var countryInput = personForm.querySelector("input[name='country']");
-var zipInput = personForm.querySelector("input[name='zip']");
+const personForm = document.getElementById("myForm");
+const nameInput = personForm.querySelector("input[name='name']");
+const ageInput = personForm.querySelector("input[name='age']");
+const emailInput = personForm.querySelector("input[name='email']");
+const phoneInput = personForm.querySelector("input[name='phone']");
+const addressInput = personForm.querySelector("input[name='address']");
+const cityInput = personForm.querySelector("input[name='city']");
+const countryInput = personForm.querySelector("input[name='country']");
+const zipInput = personForm.querySelector("input[name='zip']");
 
 personForm.addEventListener("submit", function (event) {
     event.preventDefault();

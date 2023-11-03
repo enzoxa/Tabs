@@ -1,6 +1,6 @@
 const todoFormm = document.getElementById("todoo");
 let storedTasks = [];
-const todoListt = document.getElementById("todoListt");
+const todoItems = document.getElementById("todoItems");
 
 class LocStorage {
     constructor() {
@@ -34,14 +34,14 @@ class Todo {
     //Проверка LocalStorage и наполнение страницы
     checkLocalStorage() {
         const parsedTodos = new LocStorage().getTodos();
-        todoListt.innerHTML = ''; // сначала очистим
+        todoItems.innerHTML = ''; // сначала очистим
         if (parsedTodos?.length > 0) {
             storedTasks = parsedTodos;
         }
         storedTasks.forEach(function (ToDoNode) {
             const task = JSON.parse(ToDoNode);
             const node = new Todo(task["task"], task["time"], task["isDone"], task["id"]);
-            todoListt.appendChild(node.render());
+            todoItems.appendChild(node.render());
         });
     }
 
@@ -51,7 +51,7 @@ class Todo {
         const isDeleteButton = event.target.closest(".todo__node_delete");
         const isDoneCheckBox = event.target.closest(".todo__node_checkbox");
         const parentNodeId = parentNode.id;
-        const locStor = new LocStorage();
+        const localStorage = new LocStorage();
         const node = new Todo();
 
         if (isDeleteButton) {
@@ -64,8 +64,8 @@ class Todo {
                 return task["id"] !== parentNodeId;
             });
 
-            locStor.setTodos(storedTasks);
-            node.checkLocalStorage(locStor);
+            localStorage.setTodos(storedTasks);
+            node.checkLocalStorage(localStorage);
 
         } else if (isDoneCheckBox) {
             storedTasks.forEach(function (todo) {
@@ -74,8 +74,8 @@ class Todo {
                 }
             });
 
-            locStor.setTodos(storedTasks);
-            this.checkLocalStorage(locStor);
+            localStorage.setTodos(storedTasks);
+            this.checkLocalStorage(localStorage);
         }
     }
     //Описание элементов, которые будут добавлены на страницу
@@ -115,21 +115,21 @@ class Todo {
 }
 
 //Добавление задачи в список на странице и сохранение в localStorage
-function addTask(todoListt) {
+function addTask(todoItems) {
     var task = document.getElementById("taskInput").value;
     var time = todoFormm.querySelector("input[type='time']").value;
     var isDone = document.querySelector("input[type='checkbox']").checked;
     var todo = new Todo(task, time, isDone);
 
-    todoListt.appendChild(todo.render());
+    todoItems.appendChild(todo.render());
 
     storedTasks.values(todo.getTasks());
     storedTasks.push(todo.getString());
     console.log(todo.getString());
-    LocStor.setTodos(storedTasks);
+    localStorage.setTodos(storedTasks);
 }
 
 //При обновлении страницы заполнить данными из LocalStorage
-const LocStor = new LocStorage();
-const LocStorList = new Todo();
-LocStorList.checkLocalStorage(LocStor);
+const localStorage = new LocStorage();
+const localStorageItems = new Todo();
+localStorageItems.checkLocalStorage(localStorage);
