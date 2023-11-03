@@ -116,10 +116,10 @@ class Todo {
 
 //Добавление задачи в список на странице и сохранение в localStorage
 function addTask(todoItems) {
-    var task = document.getElementById("taskInput").value;
-    var time = todoFormm.querySelector("input[type='time']").value;
-    var isDone = document.querySelector("input[type='checkbox']").checked;
-    var todo = new Todo(task, time, isDone);
+    let task = document.getElementById("taskInput").value;
+    let time = todoFormm.querySelector("input[type='time']").value;
+    let isDone = document.querySelector("input[type='checkbox']").checked;
+    let todo = new Todo(task, time, isDone);
 
     todoItems.appendChild(todo.render());
 
