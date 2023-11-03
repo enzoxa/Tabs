@@ -42,6 +42,10 @@
       }
     }
   }
+  
+  &__sort-button:first-child {
+    margin-right: 20px;
+  }
 }
 
 button {
@@ -54,8 +58,4 @@ button {
 .flex {
   display: flex;
   margin-bottom: 20px;
-
-  .todo__sort-button:first-child {
-    margin-right: 20px;
-  }
 }
