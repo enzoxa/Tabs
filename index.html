@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/index.css">
+</head>
+
+<body>
+    <div class="container-tab">
+        <div class="tabs">
+            <div class="tab">
+                <input type="radio" name="css-tabs" id="tab-1" checked class="tab-switch">
+                <label for="tab-1" class="tab-label">Человек (домашнее задание)</label>
+                <div class="tab-content">
+                    <div>
+                        <form id="myForm" class="person-form">
+                            <div>
+                                <label for="name">Name:</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div>
+                                <label for="age">Age:</label>
+                                <input type="number" id="age" name="age" required>
+                            </div>
+                            <div>
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div>
+                                <label for="phone">Phone:</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            <div>
+                                <label for="address">Address:</label>
+                                <input type="text" id="address" name="address" required>
+                            </div>
+                            <div>
+                                <label for="city">City:</label>
+                                <input type="text" id="city" name="city" required>
+                            </div>
+                            <div>
+                                <label for="country">Country:</label>
+                                <input type="text" id="country" name="country" required>
+                            </div>
+                            <div>
+                                <label for="zip">Zip:</label>
+                                <input type="postalCode" id="zip" name="zip" required>
+                            </div>
+                            <button type="submit">Вывод в консоль</button>
+                        </form>
+                        <script src="script_json.js"></script>
+                    </div>
+                </div>
+            </div>
+            <div class="tab">
+                <input type="radio" name="css-tabs" id="tab-2" class="tab-switch">
+                <label for="tab-2" class="tab-label">Мой ToDo</label>
+                <div class="tab-content">
+
+                    <form class="todoo" id="todoo">
+                        <h1>ToDo List (домашнее задание)</h1>
+
+                        <label for="taskInput">Введите задачу:</label>
+                        <input type="text" id="taskInput">
+
+                        <label for="timeInput">Введите время:</label>
+                        <input type="time" id="timeInput">
+
+                        <label for="doneInput">Пометить выполненным:</label>
+                        <input type="checkbox" id="doneInput">
+
+                        <button class="submit-task" type="submit" onclick="addTask(todoListt)">Добавить</button>
+
+                        <div id="todoListt"></div>
+                        <script src="script_ds.js"></script>
+                    </form>
+
+                </div>
+            </div>
+            <div class="tab">
+                <input type="radio" name="css-tabs" id="tab-3" class="tab-switch">
+                <label for="tab-3" class="tab-label">ToDo из занятия</label>
+                <div class="tab-content">
+
+                    <div class="container">
+                        <div class="todo-wrapper">
+                            <p class="todo__title">Todos</p>
+                            <form class="todo__form">
+                                <input type="text" class="todo__text-input" placeholder="Введите задачу" />
+                                <input type="number" class="todo__time-input" placeholder="Введите время задачи" />
+                                <button class="todo__create-button">Добавить</button>
+                            </form>
+                            <div class="flex">
+                                <button class="todo__sort-button done">Сортировка по done</button>
+                                <button class="todo__sort-button time">Сортировка по time</button>
+                            </div>
+                            <ul class="todo__list"></ul>
+                            <p class="todo__time">
+                                <span class="todo__time-message">Общее время:</span>
+                                <span class="todo__time-value"></span>
+                            </p>
+                        </div>
+                    </div>
+                    <script src="script_todo.js"></script>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
